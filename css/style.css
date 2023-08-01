@@ -1,0 +1,388 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.5rem;
+    line-height: 22px;
+    margin: 0;
+    background: #EDEDED;
+    padding-bottom: 200px;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Anton', sans-serif;
+}
+
+p {
+    margin: 0;
+    font-family: "Manrope";
+}
+
+input {
+    flex: 1;
+    font-family: inherit;
+    font-size: inherit;
+    background-color: inherit;
+    border: none;
+}
+
+/* Supprime la bordure de l'input pendant l'écriture */
+input:focus-visible {
+    outline: none;
+}
+
+button {
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+}
+
+
+header {
+    position: relative;
+    width: 100%;
+    background-image: url("../assets/background_home.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    padding-left: 5%;
+    padding-top: 2%;
+    width: 25%;
+}
+
+.titleSearchContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10.55rem;
+    padding-bottom: 10.55rem;
+}
+
+.title {
+    height: auto;
+    font-family: "Impact";
+    font-style: normal;
+    font-weight: 400;
+    text-align: center;
+    color: #ffd15b;
+    width: 80%;
+    font-size: 2.75rem;
+    line-height: normal;
+}
+
+#title1::after{
+    content: "\a";
+    white-space: pre;
+}
+
+/* Barre de recherche */
+.searchbar {
+    background-color: #E7E7E7;
+    width: 100%;
+    max-width: 1240px;
+    height: 69px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 22px;
+    padding-right: 17px;
+    margin-bottom: 25px;
+}
+
+.searchbar-button {
+    width: 3.1875rem;
+    height: 3.25rem;
+    border-radius: 0.625rem;
+    background: var(--black, #1B1B1B);
+    flex-shrink: 0;
+}
+
+main {
+    width: 90%;
+    margin: 0 auto;
+}
+
+section {
+    margin-top: 1.3rem;
+    margin-bottom: 3.44rem;
+}
+
+.flextag{
+    display: flex;
+}
+.selectedTags{
+    padding: 10px 20px;
+    width: 203px;
+    height: 53px;
+    margin-right: 20px;
+    border-radius: 10px;
+    margin-top: 15px;
+    gap:10px;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #FFD15B;
+}
+
+.selectedTags p {
+    font-size: 18px;
+}
+
+.close-button{
+    cursor: pointer;
+}
+
+/* Container des cards de recherche par ingrédients, appareils, ustensiles */
+.cards {
+    display: flex;
+    gap: 4.13rem;
+}
+
+.search-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.recipes-number {
+    display: flex;
+    align-items: center;
+    font-family: Anton;
+}
+
+/* Cards de recherche */
+.search-card {
+    border-radius: 5px;
+    position: relative;
+    width: 190px;
+    transition-duration: 300ms;
+    border-radius: 0.6875rem;
+    background: #FFF;   
+}
+
+.search-card.active{
+    
+} 
+
+.search {
+    display: flex;
+    align-items: center;
+    height: 3.5rem;
+    padding-left: 15px;
+    padding-right: 15px;
+    justify-content: space-between;
+}
+
+.search-input {
+    display: flex;
+    border-radius: 0.125rem;
+    border: 1px solid var(--light-grey, #C6C6C6);
+    margin: 0px 15px 30px 15px;
+    padding: 0px 5px;
+
+}
+
+.list-container::-webkit-scrollbar {
+    display: none;
+}
+
+.list-container {
+    scrollbar-width: none;
+    transform: scale(0);
+    position: absolute;
+    z-index: 1000;
+    top: 50px;
+    width: inherit;
+    background-color: inherit;
+    border-radius: 0 0 5px 5px;
+    max-height: 328px;
+    padding: 15px 0px;
+    overflow-y: auto;
+    transition: transform 300ms;
+    transform-origin: top left;
+}
+
+.search-card.active .list-container {
+    transform: scale(1);
+}
+
+.list-container ul {
+    list-style-type: none;
+    column-count: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.list-container ul li {
+    padding: 15px;
+}
+
+.search-card
+{background-color: #FFF;}
+
+/*:nth-of-type(1) {
+    background-color: #3282F7;
+}
+
+.appliances-filter,
+.search-card:nth-of-type(2) {
+    background-color: #68D9A4;
+}
+
+.ustensils-filter,
+.search-card:nth-of-type(3) {
+    background-color: #ED6454;
+}*/
+
+.search-card input, .search-card input::placeholder, .search-card-button {
+    color: black;
+    opacity: 1;
+    padding: 0;
+}
+
+.search-card input {
+    width: 10px;
+}
+
+.searchTagIcon {
+    width: 18px;
+}
+
+.searchTagIcon > circle, .searchTagIcon > line {
+    stroke: #7A7A7A;
+}
+
+.search-card-button {
+    margin-left: 20px;
+}
+
+.fa-chevron-down {
+    transition: transform 300ms;
+    cursor: pointer;
+}
+
+.search-card.active .fa-chevron-down {
+    transform: rotate(180deg);
+}
+/* Div qui contient les cards de recettes */
+#recipes-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 75px 50px;
+}
+
+/* Cards de recettes */
+.recipe-card {
+    flex-shrink: 0;
+    flex-basis: calc(33.333333% - 3em);
+    background-color: #ffff;
+    border-radius: 1.3125rem;
+}
+.recipe-img {
+    position: relative;
+    width: 100%;
+    height: 23.8125rem;
+    background-color: #C7BEBE;
+    border-top-right-radius: 1.3125rem;
+    border-top-left-radius: 1.3125rem;
+}
+
+.recipe-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-right-radius: 1.3125rem;
+    border-top-left-radius: 1.3125rem;
+}
+
+.recipe-content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-left: 1.56rem;
+    padding-right: 1.56rem;
+    min-height: 40.6875rem;
+    gap: 1.81rem;
+}
+
+.recipe-text {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    height: 50%;
+}
+
+.recipe-text h4 {
+    color: var(--grey, #7A7A7A);
+    font-family: "Manrope";
+    font-weight: 700;
+    letter-spacing: 0.0675rem;
+    text-transform: uppercase;
+}
+
+.recipe-head > h3 {
+    margin: 0;
+}
+
+/* Nom de la recette */
+.recipe-card h4 {
+    font-family: "Anton";
+}
+
+/* Temps */
+.recipe-card .time {
+    padding: 0.3125rem 0.9375rem;
+    border-radius: 0.875rem;
+    background: var(--yellow, #FFD15B);
+    position: absolute;
+    top: 1.31rem;
+    right: 1.38rem;
+    font-weight: 700;
+}
+
+.recipe-instructions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Description */
+.description {
+    font-family: "Manrope";
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Ingrédients */
+.recipe-card aside {
+    padding-right: 15px;
+}
+
+.recipe-ingredients {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 1.31rem;
+}
+
+.recipe-ingredients div {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    flex-basis: 50%;
+}
+
+.ingredient {
+    font-weight: 500;
+}
+
+.units {
+    color: var(--grey, #7A7A7A);
+}

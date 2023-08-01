@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <!-- Meta -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Votre site de recettes de cuisine" />
+
+    <!-- Titre de la page -->
+    <title>Les petits plats</title>
+
+    <!-- Links -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="assets/logo.png" class="logoIcon" alt="Logo Les petits plats" />
+      </div>
+      <div class="titleSearchContainer">
+        <h1 class="title"><span id="title1">CHERCHEZ PARMI PLUS DE 1500 RECETTES</span><span id="title2">DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES</span></h1>
+        <div class="searchbar">
+          <input
+            type="text"
+            name="search"
+            id="search"
+            placeholder="Rechercher une recette, un ingrédient, ..."
+          />
+          <button type="submit" class="searchbar-button">
+            <img src="assets/SearchIcon.svg" class="searchIcon" alt="search">
+          </button></div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Formulaire de recherche -->
+      <section>
+        <form action="#" method="get" class="form">
+          <div class="search-list">
+            <!-- Cards de recherche -->
+            <div class="cards">
+              <!-- Ingrédients -->
+              <div class="search-card">
+                <div class="search">                
+                  <p id="ingredientSearchCard">Ingrédients</p>
+                  <button type="button" class="search-card-button">
+                  <i class="fas fa-chevron-down" id="ingredients-chevron"></i>
+                  </button>
+                </div>
+                
+                <div id="ingredients-container" class="list-container">
+                  <div class="search-input">
+                    <input
+                      type="text"
+                      name="ingredients"
+                      id="ingredients"
+                    />
+                    <svg class="searchTagIcon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="10" cy="10" r="9.5" stroke="white"/>
+                      <line x1="18.3536" y1="18.6464" x2="27.3536" y2="27.6464" stroke="white"/>
+                      </svg>
+                  </div>
+                  <ul id="ingredients-ul"></ul>
+                </div>
+              </div>
+              <!-- Appareils -->
+              <div class="search-card">
+                <div class="search">                
+                  <p id="ingredientSearchCard">Appareils</p>
+                  <button type="button" class="search-card-button">
+                  <i class="fas fa-chevron-down" id="ingredients-chevron"></i>
+                  </button>
+                </div>
+
+                <div id="appliances-container" class="list-container">
+                  <div class="search-input">
+                    <input
+                      type="text"
+                      name="appareil"
+                      id="appareil"
+                    />
+                    <svg class="searchTagIcon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="10" cy="10" r="9.5" stroke="white"/>
+                      <line x1="18.3536" y1="18.6464" x2="27.3536" y2="27.6464" stroke="white"/>
+                      </svg>
+                  </div>
+                  <ul id="appliances-ul"></ul>
+                </div>
+              </div>
+              <!-- Ustensiles -->
+              <div class="search-card">
+                <div class="search">                
+                  <p id="ingredientSearchCard">Ustensiles</p>
+                  <button type="button" class="search-card-button">
+                  <i class="fas fa-chevron-down" id="ingredients-chevron"></i>
+                  </button>
+                </div>
+
+                <div id="ustensils-container" class="list-container">
+                  <div class="search-input">
+                    <input
+                      type="text"
+                      name="ustensiles"
+                      id="ustensiles"
+                    />
+                    <svg class="searchTagIcon" width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="10" cy="10" r="9.5" stroke="white"/>
+                      <line x1="18.3536" y1="18.6464" x2="27.3536" y2="27.6464" stroke="white"/>
+                      </svg>
+                  </div>
+                  <ul id="ustensils-ul"></ul>
+                </div>
+              </div>
+            </div>
+            <div class="recipes-number"></div>
+          </div>
+          <div id="selectedTags" class="flextag"></div>
+        </form>
+      </section>
+
+      <!-- Recettes -->
+      <div class="recipes" id="recipes-container"></div>
+      <div id="error-result"></div>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="javascript/index.js" type="module"></script>
+  </body>
+</html>
