@@ -1,40 +1,28 @@
 import getRecipes from "./getRecipes.js";
 
-// ALGO SEARCH 2
-let errorResult = document.getElementById("error-result");
-let recipesNumber = document.getElementsByClassName("recipes-number")[0];
-
+// ALGO SEARCH 1
 export default function search(query, recipesData) {
-  
-    let newArray = recipesData.recipes;
-    let sortArray = [];
-    for (let i = 0; i < newArray.length; i++) {
-      if (
-        newArray[i].name.toLowerCase().includes(query.toLowerCase()) ||
-        newArray[i].description.toLowerCase().includes(query.toLowerCase())
-      ) {
-        sortArray.push(newArray[i]);
-      } else {
-        for (let j = 0; j < newArray[i].ingredients.length; j++) {
-          if (
-            newArray[i].ingredients[j].ingredient
-              .toLowerCase()
-              .includes(query.toLowerCase())
-          ) {
-            sortArray.push(newArray[i]);
-            break;
-          }
-        }
-      }
-    }
-    // Modify UI
-    if (sortArray.length == 0) {
-       return recipesData;
-    } else {
-      errorResult.innerHTML = "";
-      recipesNumber.style.display = "flex"
-      // Display in the DOM, the filtered recipes
-      recipesData.recipeDisplayed = sortArray;
-      return getRecipes(recipesData);
-    }
+  let errorResult = document.getElementById("error-result");
+  let recipesNumber = document.getElementsByClassName("recipes-number")[0];
+
+  let filteredRecipes = recipesData.recipes.filter((element) => {
+    let recipeIngredients = element.ingredients.map((ing) =>
+      ing.ingredient.toLowerCase()
+    );
+    return (
+      element.name.toLowerCase().includes(query) ||
+      recipeIngredients.includes(query) ||
+      element.description.toLowerCase().includes(query)
+    );
+  });
+  recipesData.recipeDisplayed = filteredRecipes;
+  // Modify UI
+  if (filteredRecipes.length == 0) {
+    return recipesData;
+  } else {
+    errorResult.innerHTML = "";
+    recipesNumber.style.display = "flex"
+    // Display in the DOM, the filtered recipes
+    return getRecipes(recipesData);
   }
+}
