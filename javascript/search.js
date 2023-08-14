@@ -27,6 +27,7 @@ export default function search(query, recipesData) {
         }
       }
     }
+    recipesData.recipeDisplayed = sortArray;
     // Modify UI
     if (sortArray.length == 0) {
        return recipesData;
@@ -34,7 +35,6 @@ export default function search(query, recipesData) {
       errorResult.innerHTML = "";
       recipesNumber.style.display = "flex"
       // Display in the DOM, the filtered recipes
-      recipesData.recipeDisplayed = sortArray;
       return getRecipes(recipesData);
     }
   }

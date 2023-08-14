@@ -69,7 +69,7 @@ searchInput.addEventListener("input", () => {
 ingredientsInput.addEventListener("keyup", (e) =>
   inputTag(
     e.target,
-    recipesData.ingredientList,
+    recipesData.sortedByIngredients,
     ingredientsUl,
     recipesData.selectedIngredients,
     "ingredients-filter"
@@ -78,7 +78,7 @@ ingredientsInput.addEventListener("keyup", (e) =>
 applianceInput.addEventListener("keyup", (e) =>
   inputTag(
     e.target,
-    recipesData.applianceList,
+    recipesData.sortedByAppliances,
     applianceUl,
     recipesData.selectedAppliances,
     "appliances-filter"
@@ -87,7 +87,7 @@ applianceInput.addEventListener("keyup", (e) =>
 ustensilsInput.addEventListener("keyup", (e) =>
   inputTag(
     e.target,
-    recipesData.ustensilsList,
+    recipesData.sortedByUstensils,
     ustensilsUl,
     recipesData.selectedUstensils,
     "ustensils-filter"
@@ -98,10 +98,14 @@ export default function pipeline() {
   recipesData = searchRecipe(searchInput, recipesData);
   recipesData = searchTag(recipesData);
   if (recipesData.recipeDisplayed.length == 0) {
-    recipesNumber.style.display = "none"
-    // Display an error when there are no results
-    errorResult.innerHTML = `<p class="no-value">« Aucune recette ne correspond à votre critère… vous pouvez
-    chercher « tarte aux pommes », « poisson », etc.
-     </p>`;
+    displayError()
   }
+}
+
+function displayError(){
+  recipesNumber.style.display = "none"
+  // Display an error when there are no results
+  errorResult.innerHTML = `<p class="no-value">« Aucune recette ne correspond à votre critère… vous pouvez
+  chercher « tarte aux pommes », « poisson », etc.
+   </p>`;
 }
